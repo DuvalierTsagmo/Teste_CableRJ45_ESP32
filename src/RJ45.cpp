@@ -1,7 +1,7 @@
 #include "RJ45.h"
 #include <Arduino.h>
 
-//les fonctions developper
+//les fonctions developper de notre programme
 void portRj45::intialisationINPUT()
 {
     pinMode(orangeBlanc, INPUT);
@@ -71,7 +71,7 @@ bool portRj45::fonctionRecevoir()
     Broche7Envoyer = digitalRead(maronBlanc);
     Broche8Envoyer = digitalRead(maron);
 
-    //les instructions sur les broches
+    
     if ((Broche1Envoyer == 1) && (Broche2Envoyer == 1) && (Broche3Envoyer == 1) && (Broche4Envoyer == 1) && (Broche5Envoyer == 1) && (Broche6Envoyer == 1) && (Broche7Envoyer == 1) && (Broche8Envoyer == 1))
     {
         return true;

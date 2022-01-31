@@ -46,5 +46,5 @@ void loop()
             Serial.println("le cable est croisee");
         }
     }
-    delay(1000);
+    delay(1500);
 }
