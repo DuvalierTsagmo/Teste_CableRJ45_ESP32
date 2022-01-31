@@ -2,43 +2,56 @@
 #include <Arduino.h>
 
 //les fonctions developper
-void intialisationINPUT(int oB, int o, int vB, int b, int bB, int v, int mB, int m)
+void portRj45::intialisationINPUT()
 {
-    pinMode(oB, INPUT);
-    pinMode(o, INPUT);
-    pinMode(vB, INPUT);
-    pinMode(b, INPUT);
-    pinMode(bB, INPUT);
-    pinMode(v, INPUT);
-    pinMode(mB, INPUT);
-    pinMode(m, INPUT);
+    pinMode(orangeBlanc, INPUT);
+    pinMode(orange, INPUT);
+    pinMode(vertBlanc, INPUT);
+    pinMode(vert, INPUT);
+    pinMode(bleuBlanc, INPUT);
+    pinMode(bleu, INPUT);
+    pinMode(maronBlanc, INPUT);
+    pinMode(maron, INPUT);
 }
 
-void intialisationOUTPUT(int oB, int o, int vB, int b, int bB, int v, int mB, int m)
+portRj45::portRj45(int oB, int o, int vB, int b, int bB, int v, int mB, int m)
 {
-    pinMode(oB, OUTPUT);
-    pinMode(o, OUTPUT);
-    pinMode(vB, OUTPUT);
-    pinMode(b, OUTPUT);
-    pinMode(bB, OUTPUT);
-    pinMode(v, OUTPUT);
-    pinMode(mB, OUTPUT);
-    pinMode(m, OUTPUT);
+
+    orangeBlanc = oB;
+    orange = o;
+    vertBlanc = vB;
+    bleu = b;
+    bleuBlanc = bB;
+    vert = v;
+    maronBlanc = mB;
+    maron = m;
 }
 
-void etatBrocheHIGH(int oB, int o, int vB, int b, int bB, int v, int mB, int m)
+void portRj45::intialisationOUTPUT()
 {
-    digitalWrite(oB, HIGH);
-    digitalWrite(o, HIGH);
-    digitalWrite(vB, HIGH);
-    digitalWrite(b, HIGH);
-    digitalWrite(bB, HIGH);
-    digitalWrite(v, HIGH);
-    digitalWrite(mB, HIGH);
-    digitalWrite(m, HIGH);
+    pinMode(orangeBlanc, OUTPUT);
+    pinMode(orange, OUTPUT);
+    pinMode(vertBlanc, OUTPUT);
+    pinMode(vert, OUTPUT);
+    pinMode(bleuBlanc, OUTPUT);
+    pinMode(bleu, OUTPUT);
+    pinMode(maronBlanc, OUTPUT);
+    pinMode(maron, OUTPUT);
 }
 
-bool fonctionRecevoir(int oB, int o, int vB, int b, int bB, int v, int mB, int m)
+void portRj45::etatBrocheHIGH()
+{
+    digitalWrite(orangeBlanc, HIGH);
+    digitalWrite(orange, HIGH);
+    digitalWrite(vertBlanc, HIGH);
+    digitalWrite(vert, HIGH);
+    digitalWrite(bleuBlanc, HIGH);
+    digitalWrite(bleu, HIGH);
+    digitalWrite(maronBlanc, HIGH);
+    digitalWrite(maron, HIGH);
+}
+
+bool portRj45::fonctionRecevoir()
 {
     int Broche1Envoyer;
     int Broche2Envoyer;
@@ -49,14 +62,14 @@ bool fonctionRecevoir(int oB, int o, int vB, int b, int bB, int v, int mB, int m
     int Broche7Envoyer;
     int Broche8Envoyer;
 
-    Broche1Envoyer = digitalRead(oB);
-    Broche2Envoyer = digitalRead(o);
-    Broche3Envoyer = digitalRead(vB);
-    Broche4Envoyer = digitalRead(b);
-    Broche5Envoyer = digitalRead(bB);
-    Broche6Envoyer = digitalRead(v);
-    Broche7Envoyer = digitalRead(mB);
-    Broche8Envoyer = digitalRead(m);
+    Broche1Envoyer = digitalRead(orangeBlanc);
+    Broche2Envoyer = digitalRead(orange);
+    Broche3Envoyer = digitalRead(vertBlanc);
+    Broche4Envoyer = digitalRead(vert);
+    Broche5Envoyer = digitalRead(bleuBlanc);
+    Broche6Envoyer = digitalRead(bleu);
+    Broche7Envoyer = digitalRead(maronBlanc);
+    Broche8Envoyer = digitalRead(maron);
 
     //les instructions sur les broches
     if ((Broche1Envoyer == 1) && (Broche2Envoyer == 1) && (Broche3Envoyer == 1) && (Broche4Envoyer == 1) && (Broche5Envoyer == 1) && (Broche6Envoyer == 1) && (Broche7Envoyer == 1) && (Broche8Envoyer == 1))
@@ -67,4 +80,16 @@ bool fonctionRecevoir(int oB, int o, int vB, int b, int bB, int v, int mB, int m
     {
         return false;
     }
+}
+
+void portRj45::etatBrocheLOW()
+{
+
+    digitalWrite(orange, LOW);
+    digitalWrite(vertBlanc, LOW);
+    digitalWrite(vert, LOW);
+    digitalWrite(bleuBlanc, LOW);
+    digitalWrite(bleu, LOW);
+    digitalWrite(maronBlanc, LOW);
+    digitalWrite(maron, LOW);
 }

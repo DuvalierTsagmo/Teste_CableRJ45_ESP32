@@ -1,5 +1,5 @@
 
-//declaration de la classe
+//declaration de la classe et son constructeur
 class portRj45
 {
 public:
@@ -12,21 +12,14 @@ public:
     int maronBlanc;
     int maron;
 
-    portRj45(int oB, int o, int vB, int b, int bB, int v, int mB, int m)
-    {
+    portRj45(int oB, int o, int vB, int b, int bB, int v, int mB, int m);
 
-        orangeBlanc = oB;
-        orange = o;
-        vertBlanc = vB;
-        bleu = b;
-        bleuBlanc = bB;
-        vert = v;
-        maronBlanc = mB;
-        maron = m;
-    }
+    void intialisationINPUT();
+    void intialisationOUTPUT();
+    void etatBrocheHIGH();
+    bool fonctionRecevoir();
+    void verifierType();
+    void etatBrocheLOW();
 };
 
-void intialisationINPUT(int oB, int o, int vB, int b, int bB, int v, int mB, int m);
-void intialisationOUTPUT(int oB, int o, int vB, int b, int bB, int v, int mB, int m);
-void etatBrocheHIGH(int oB, int o, int vB, int b, int bB, int v, int mB, int m);
-bool fonctionRecevoir(int oB, int o, int vB, int b, int bB, int v, int mB, int m);
+//initialisation des fonctions
